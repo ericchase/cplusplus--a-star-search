@@ -25,7 +25,7 @@ From my initial comments in a-star-search.cpp:
 // pass over a significant amount of cost and heuristic function calls.
 
 // Profiling (in Release configuration)
-// I'm not an expert with profiling, but one of the details that stook
+// I'm not an expert with profiling, but one of the details that stood
 // out to me was the call count to std::lower_bound. In one instance,
 // A* one showed 24,415 calls whereas A* two showed only 8,238. This was
 // the most significant difference. Since the 8puzzle problem is fairly
