@@ -284,7 +284,6 @@ namespace Puzzle
         return out.str();
     }
 
-
     size_t shuffled_to_base (Board& start, Board& goal)
     {
         std::cout << "Shuffling board." << "\n" << std::endl;

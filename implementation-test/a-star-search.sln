@@ -1,14 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2026
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "a-star-search", "a-star-search\a-star-search.vcxproj", "{6B93DCCD-B817-485A-A2FF-9E52D51F2FC9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "template-a-star", "template-a-star\template-a-star.vcxproj", "{B699874C-277F-419E-83C9-A265970555AE}"
+EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
@@ -24,11 +23,22 @@ Global
 		{6B93DCCD-B817-485A-A2FF-9E52D51F2FC9}.Release|x64.Build.0 = Release|x64
 		{6B93DCCD-B817-485A-A2FF-9E52D51F2FC9}.Release|x86.ActiveCfg = Release|Win32
 		{6B93DCCD-B817-485A-A2FF-9E52D51F2FC9}.Release|x86.Build.0 = Release|Win32
+		{B699874C-277F-419E-83C9-A265970555AE}.Debug|x64.ActiveCfg = Debug|x64
+		{B699874C-277F-419E-83C9-A265970555AE}.Debug|x64.Build.0 = Debug|x64
+		{B699874C-277F-419E-83C9-A265970555AE}.Debug|x86.ActiveCfg = Debug|Win32
+		{B699874C-277F-419E-83C9-A265970555AE}.Debug|x86.Build.0 = Debug|Win32
+		{B699874C-277F-419E-83C9-A265970555AE}.Release|x64.ActiveCfg = Release|x64
+		{B699874C-277F-419E-83C9-A265970555AE}.Release|x64.Build.0 = Release|x64
+		{B699874C-277F-419E-83C9-A265970555AE}.Release|x86.ActiveCfg = Release|Win32
+		{B699874C-277F-419E-83C9-A265970555AE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5C5C0A3A-E3B6-4946-B737-2E411BB788B2}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal

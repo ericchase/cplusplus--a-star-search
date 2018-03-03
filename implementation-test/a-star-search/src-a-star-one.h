@@ -23,7 +23,7 @@ std::stack <NODE> a_star_one
     parent_of[start] = start;
     path_cost_of[start] = 0;
 
-    static int loopCount = 0;
+    //static int loopCount = 0;
     while (!fringe.empty())
     {
         // can't be a reference
@@ -41,7 +41,7 @@ std::stack <NODE> a_star_one
 
         for (NODE neighbor : get_neighbors_of(current))
         {
-            loopCount++;
+            //loopCount++;
 
             const WEIGHT g_n = path_cost_of[current] + get_cost_of(current, neighbor);
 
@@ -56,7 +56,7 @@ std::stack <NODE> a_star_one
             path_cost_of[neighbor] = g_n;
         }
     }
-    std::cout << "Loops: " << loopCount << "\n" << std::endl;
+    //std::cout << "Loops: " << loopCount << "\n" << std::endl;
 
     std::stack <NODE> optimal_path;
 

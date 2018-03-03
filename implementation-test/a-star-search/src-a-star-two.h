@@ -1,20 +1,18 @@
-// Influenced by:
-// https://www.youtube.com/watch?v=-L-WgKMFuhE
-
+// Code taken from
+// https://github.com/ericchase/cplusplus-a-star-search
 
 #pragma once
 
 template <typename NODE, typename WEIGHT>
 std::stack <NODE> a_star_two
     (
-        NODE start, NODE goal,
+        const NODE start, const NODE goal,
         std::vector <NODE> (*get_neighbors_of) (const NODE&),
         WEIGHT (*get_cost_of) (const NODE&, const NODE&),
         WEIGHT (*get_estimate_of) (const NODE&, const NODE&)
     )
 {
     typedef std::pair <WEIGHT, NODE> weighted_node;
-    //std::priority_queue <weighted_node, std::deque <weighted_node>, std::greater <weighted_node>> fringe;
 
     std::set <weighted_node> open;
     std::set <NODE> closed;
@@ -22,23 +20,19 @@ std::stack <NODE> a_star_two
     std::map <NODE, NODE> parent_of;
     std::map <NODE, WEIGHT> path_cost_of;
 
-    //fringe.emplace(0, start);
     open.emplace(0, start);
-    parent_of[start] = start;
-    path_cost_of[start] = 0;
+    parent_of.emplace(start, start);
+    path_cost_of.emplace(start, 0);
 
-    static int loopCount = 0;
-    //while (!fringe.empty())
+    //static int loopCount = 0;
     while (!open.empty())
     {
         // can't be a reference
-        //const NODE current = fringe.top().second;
         const NODE current = open.begin()->second;
 
         if (current == goal)
             break;
 
-        //fringe.pop();
         open.erase(open.begin());
 
         if (closed.find(current) != closed.end())
@@ -50,7 +44,7 @@ std::stack <NODE> a_star_two
             if (closed.find(neighbor) != closed.end())
                 continue;
 
-            loopCount++;
+            //loopCount++;
 
             const WEIGHT g_n = path_cost_of[current] + get_cost_of(current, neighbor);
 
@@ -60,27 +54,23 @@ std::stack <NODE> a_star_two
 
             WEIGHT f_n = g_n + get_estimate_of(neighbor, goal);
 
-            //fringe.emplace(f_n, neighbor);
             open.emplace(f_n, neighbor);
-            parent_of[neighbor] = current;
-            path_cost_of[neighbor] = g_n;
+            parent_of.at(neighbor) = current;
+            path_cost_of.at(neighbor) = g_n;
         }
     }
-    std::cout << "Loops: " << loopCount << "\n" << std::endl;
 
     std::stack <NODE> optimal_path;
 
-    //if (!fringe.empty())
     if (!open.empty())
     {
         // cannot be const or reference
-        //NODE node = fringe.top().second;
         NODE node = open.begin()->second;
 
         optimal_path.push(node);
-        while (parent_of[node] != node)
+        while (parent_of.at(node) != node)
         {
-            node = parent_of[node];
+            node = parent_of.at(node);
             optimal_path.push(node);
         }
     }
